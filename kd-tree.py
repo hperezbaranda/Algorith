@@ -227,7 +227,7 @@ if __name__ == '__main__':
     """Alocação de Companheiro"""
 
 
-    asignment = None
+    assignment = None
 
     init = open("init")
     lista = init.readlines()
@@ -236,9 +236,9 @@ if __name__ == '__main__':
         linha = i.strip().split(" ")
         ppoint = (int(linha[1]),int(linha[2]))
         trabalhador[ppoint]=linha[0]
-        asignment = kdInsert(ppoint,asignment)
+        assignment = kdInsert(ppoint,asignment)
 
-    asignment = balancear(asignment) # Equilibrar a Arvore
+    assignment = balancear(assignment) # Equilibrar a Arvore
     #print asignment.leftChild.leftChild
 
     print("Alocação de Companheiro")
@@ -259,11 +259,11 @@ if __name__ == '__main__':
             print( "Para procurar um companhero precisamos conheçer do candidato:")
             year = input("quantos anos tem: ")
             kids = input("quantas crianças tem: ")
-            team = nn_search((year,kids),asignment)
+            team = nn_search((year,kids),assignment)
 
             if team is not None:
                 print("\nO posible companhero é: {}%s{}\n".format('\033[32m','\033[0m') %trabalhador[team[0]])
-                plotTree(asignment,(year,kids),team[0])
+                plotTree(assignment,(year,kids),team[0])
             else:
                 print( "\n No tem companhero\n")
 
@@ -273,7 +273,7 @@ if __name__ == '__main__':
             year = input("quantos anos tem: ")
             kids = input("quantas crianças tem: ")
             point = (year, kids)
-            asignment = kdInsert(point, asignment)
+            assignment = kdInsert(point, assignment)
             print
 
         else:
